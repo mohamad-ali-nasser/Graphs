@@ -65,7 +65,7 @@ class Graph:
         s = Stack()
         s.push(starting_vertex)
         dft_visited_set = set()
-        while q.size() > 0:
+        while s.size() > 0:
             number = s.pop()
             
             if number not in dft_visited_set:
@@ -165,7 +165,7 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
-    graph.dft(1)
+    print(graph.dft(1))
     graph.dft_recursive(1)
 
     '''
