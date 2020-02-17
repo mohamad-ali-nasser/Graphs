@@ -31,7 +31,10 @@ class Graph:
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        if vertex_id in self.vertices:
+            return self.vertices[vertex_id]
+        else:
+            raise IndexError("Index does not exist")
 
     def bft(self, starting_vertex):
         """
@@ -109,6 +112,7 @@ if __name__ == '__main__':
     '''
     print(graph.vertices)
 
+    print(graph.get_neighbors(2), graph.get_neighbors(5))
     '''
     Valid BFT paths:
         1, 2, 3, 4, 5, 6, 7
