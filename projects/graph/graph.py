@@ -41,14 +41,41 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        q = Queue()
+        q.enqueue(starting_vertex)
+        bft_visited_set = set()
+        while q.size() > 0:
+            number = q.dequeue()
+            
+            if number not in bft_visited_set:
+                bft_visited_set.add(number)
+
+                neighbors = self.get_neighbors(number)
+                for n in neighbors:
+                    q.enqueue(n)
+                
+        return bft_visited_set
+
 
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        s = Stack()
+        s.push(starting_vertex)
+        dft_visited_set = set()
+        while q.size() > 0:
+            number = s.pop()
+            
+            if number not in dft_visited_set:
+                dft_visited_set.add(number)
+
+                neighbors = self.get_neighbors(number)
+                for n in neighbors:
+                    s.push(n)
+                
+        return dft_visited_set
 
     def dft_recursive(self, starting_vertex):
         """
@@ -128,7 +155,8 @@ if __name__ == '__main__':
         1, 2, 4, 3, 7, 6, 5
         1, 2, 4, 3, 7, 5, 6
     '''
-    graph.bft(1)
+    # graph.bft(1)
+    print(graph.bft(1))
 
     '''
     Valid DFT paths:
