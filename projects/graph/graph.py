@@ -207,7 +207,41 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        # s.push(starting_vertex)
+        # dft_visited_set = set()
+        # while s.size() > 0:
+        #     number = s.pop()
+            
+        #     if number not in dft_visited_set:
+        #         dft_visited_set.add(number)
+
+        #         neighbors = self.get_neighbors(number)
+        #         for n in neighbors:
+        #             s.push(n)
+                
+        # return dft_visited_set
+        
+        
+        s = Stack()
+        listy = [starting_vertex]
+        s.push(listy)
+        bfs_visited_set = set()
+        
+        while s.size() > 0:
+            
+            number = s.pop()
+            if number[-1] == destination_vertex:
+                # bfs_visited_set.add(number)
+                return number
+            
+            if number[-1] not in bfs_visited_set:
+                neighbors = self.get_neighbors(number[-1])
+                bfs_visited_set.add(number[-1])
+            
+                for n in neighbors:
+                    temp_listy = number.copy()
+                    temp_listy.append(n)
+                    s.push(temp_listy)
 
     def dfs_recursive(self, starting_vertex):
         """
