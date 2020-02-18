@@ -84,7 +84,58 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
+        s = Stack()
+        if s.size() == 0:
+            print("SMTHG")
+            s = Stack()
+            dft_visited_set = set()
+            s.push(starting_vertex)
+            number = s.pop()
+        
+        
+        print(f"number 1: {number}")
+        # if number not in dft_visited_set:
+        #     dft_visited_set.add(number)
+        #     print(f"dft_visited_set 1: {dft_visited_set}")
+        #     neighbors = self.get_neighbors(number)
+        #     print(f"get_neighbors 1: {neighbors}")
+        #     number = s.pop()
+        #     for n in neighbors:
+        #         dft_visited_set = self.dft_recursive(n)
+        #         print(f"dft_visited_set 2: {dft_visited_set}")
+        #         print(f"n: {n}")
+        #         return dft_visited_set
+        
+        
+
+        
+        # print(f"number 1: {number}")
+        # if number not in dft_visited_set:
+        #         dft_visited_set.add(number)
+        #         print(f"dft_visited_set 1: {dft_visited_set}")
+        #         neighbors = self.get_neighbors(number)
+        #         print(f"get_neighbors 1: {neighbors}")
+        #         for n in neighbors:
+        #             dft_recursive(s.push(n).pop())
+        #             print(f"dft_visited_set 2: {dft_visited_set}")
+        #             print(f"n: {n}")
+        
+        # s.push(starting_vertex)
+        #         # return s.pop()
+        # # print(f"dft_visited_set 2: {dft_visited_set}")
+        # # dft_visited_set = dft_recursive(self, 1)
+        # print(f"dft_visited_set 3: {dft_visited_set}")
+        # while s.size() > 0:
+        #     number = s.pop()
+            
+        #     if number not in dft_visited_set:
+        #         dft_visited_set.add(number)
+
+        #         neighbors = self.get_neighbors(number)
+        #         for n in neighbors:
+        #             s.push(n)
+                
+        # return dft_visited_set
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -92,7 +143,63 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+                # Create an empty queue
+        # Add A PATH TO the starting vertex_id to the queue
+        # Create an empty set to store visited nodes
+        # While the queue is not empty...
+            # Dequeue, the first PATH
+            # GRAB THE LAST VERTEX FROM THE PATH
+            # CHECK IF IT'S THE TARGET
+                # IF SO, RETURN THE PATH
+            # Check if it's been visited
+            # If it has not been visited...
+                # Mark it as visited
+                # Then add A PATH TO all neighbors to the back of the queue
+                    # (Make a copy of the path before adding)
+        q = Queue()
+        listy = [starting_vertex]
+        q.enqueue(listy)
+        bfs_visited_set = set()
+        
+        while q.size() > 0:
+            
+            number = q.dequeue()
+            if number[-1] == destination_vertex:
+                # bfs_visited_set.add(number)
+                return number
+            if number[-1] not in bfs_visited_set:
+                neighbors = self.get_neighbors(number[-1])
+                bfs_visited_set.add(number[-1])
+                
+                for n in neighbors:
+                    temp_listy = number.copy()
+                    temp_listy.append(n)
+                    q.enqueue(temp_listy)
+                
+        # return bfs_visited_set
+        
+        # q = Queue()
+        # q.enqueue([starting_vertex])
+        # bfs_visited_set = set()
+        
+        # while q.size() > 0:
+        #     print(0)
+        #     number = q.dequeue()
+        #     print(number)
+        #     if destination_vertex == number[-1]:
+        #         # bfs_visited_set.add(number[-1])
+        #         return number
+        #     last_number = number[-1]
+        #     if last_number not in bfs_visited_set:
+        #         bfs_visited_set.add(last_number)
+        #         for n in number:
+        #             neighbors = self.get_neighbors(n)
+                    
+        #             temp_list = []
+        #             for i in neighbors:
+        #                 temp_list.append(i)
+        #             q.enqueue(temp_list) 
+                
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -166,7 +273,7 @@ if __name__ == '__main__':
         1, 2, 4, 6, 3, 5, 7
     '''
     print(graph.dft(1))
-    graph.dft_recursive(1)
+    print(graph.dft_recursive(1))
 
     '''
     Valid BFS path:
@@ -180,4 +287,4 @@ if __name__ == '__main__':
         [1, 2, 4, 7, 6]
     '''
     print(graph.dfs(1, 6))
-    print(graph.dfs_recursive(1, 6))
+    # print(graph.dfs_recursive(1, 6))
