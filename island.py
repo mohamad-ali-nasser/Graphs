@@ -1,5 +1,10 @@
-"""Represent a graph as a dictionary of vertices mapping labels to edges."""
-from util import Stack, Queue  # These may come in handy
+# Write a function that takes a 2D binary array and returns the number of 1 islands. An island consists of 1s that are connected to the north, south, east or west. For example:
+# islands = [[0, 1, 0, 1, 0],
+#            [1, 1, 0, 1, 1],
+#            [0, 0, 1, 0, 0],
+#            [1, 0, 1, 0, 0],
+#            [1, 1, 0, 0, 0]]
+# island_counter(islands) # returns 4
 
 
 class Graph:
@@ -108,9 +113,9 @@ class Graph:
                     temp_listy.append(n)
                     s.push(temp_listy)
 
-def earliest_ancestor(ancestors, input):
+def earliest_ancestor(islands):
     g = Graph()
-    for i in ancestors:
+    for i in islands:
         g.add_vertex(i[0])
         g.add_vertex(i[1])
     
@@ -121,15 +126,14 @@ def earliest_ancestor(ancestors, input):
     # print(g.vertices)
     print(g.dft(input)) 
     return g.dft(input)
-        
-earliest_ancestor([(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)], 4)
 
-"""
- 10
- /
-1   2   4  11
- \ /   / \ /
-  3   5   8
-   \ / \   \
-    6   7   9
-"""
+# Write a function that takes a 2D binary array and returns the number of 1 islands. An island consists of 1s that are connected to the north, south, east or west. For example:
+islands = [[0, 1, 0, 1, 0],
+           [1, 1, 0, 1, 1],
+           [0, 0, 1, 0, 0],
+           [1, 0, 1, 0, 0],
+           [1, 1, 0, 0, 0]]
+# island_counter(islands) # returns 4
+
+for i, j in enumerate(islands):
+    print(i,j)
