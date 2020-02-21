@@ -25,7 +25,6 @@ def walts_to_the_bank(world, traversal_path, initial, first=None):
         visited[curr_room.id][direction] = False
     # print(visited[curr_room.id])
 
-    # iterating through all rooms as unknown
     def unvisited(graph):
         for i in graph:
             if False in graph[i].values():
