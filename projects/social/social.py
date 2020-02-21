@@ -213,5 +213,5 @@ if __name__ == '__main__':
     print(sg.users)
     print(sg.friendships)
     print(sg.get_all_social_paths(1))
-    # connections = sg.get_all_social_paths(1)
-    # print(connections)
+    connections = sg.get_all_social_paths(1)
+    print(connections)
